@@ -5,7 +5,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class Donut extends JPanel{
+public class Donut extends JPanel {
     private BufferedImage image;
     private int x;
     private int y;
@@ -24,6 +24,39 @@ public class Donut extends JPanel{
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(image, x, y, null);
+        g.drawImage(image, 0, 0, null);
     }
+
+    public void moveRight(int step) {
+        x += step;
+    }
+
+    public void moveLeft(int step) {
+        x -= step;
+    }
+
+    public void moveUp(int step) {
+        y += step;
+    }
+
+    public void moveDown(int step) {
+        y -= step;
+    }
+
+    public boolean isRightSideEnd(int rightSideEnd) {
+        return x >= rightSideEnd;
+    }
+
+    public boolean isLefttSideEnd(int leftSideEnd) {
+        return x >= leftSideEnd;
+    }
+
+    public boolean isTop(int top) {
+        return y <= top;
+    }
+
+    public boolean isBottom(int bottom) {
+        return y >= bottom;
+    }
+
 }
